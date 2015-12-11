@@ -1,9 +1,5 @@
 <h2>Lista de meseros</h2>
-<?php
-echo $this->html->link('Crear Mesero',array ('controller'=> 'meseros','action'=>'nuevo'));
-echo"<br>";
-echo $this->html->link('Mostrar Mesas',array ('controller'=> 'mesas','action'=>'index'));
-?>
+
 <table>
 	<tr>
 		<td>Id</td>
@@ -25,3 +21,13 @@ echo $this->html->link('Mostrar Mesas',array ('controller'=> 'mesas','action'=>'
 	</tr>
 <?php endforeach;?>
 </table>
+<?php
+echo"<br><br>";
+echo $this->html->link('Crear Mesero',array ('controller'=> 'meseros','action'=>'nuevo'));
+echo"<br><br>";
+echo $this->html->link('Mostrar Mesas',array ('controller'=> 'mesas','action'=>'index'));
+?>
+<?php
+echo "<br><br>";
+echo $this->html->link('Volver a menu', array('controller'=>'menu', 'action'=>'index'));
+?>
