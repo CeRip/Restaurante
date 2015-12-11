@@ -18,6 +18,8 @@ class MesasController extends AppController{
 			 }
 			 $this->Flash->set('No se pudo crear la mesa');
 		}
+		$meseros=$this->Mesa->Mesero->find('list', array('fields'=>array('id','nombre_completo')));
+		$this->set('meseros', $meseros);
 	}
 
 	public function editar($id=null){
@@ -41,6 +43,8 @@ class MesasController extends AppController{
 		if (!$this->request->data) {
 			$this->request->data=$mesa;
 		}
+		$meseros=$this->Mesa->Mesero->find('list', array('fields'=>array('id','nombre_completo')));
+		$this->set('meseros', $meseros);
 	}
 	public function eliminar($id){
 		if ($this->request->is('get')) {
