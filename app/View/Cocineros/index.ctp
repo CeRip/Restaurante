@@ -1,4 +1,4 @@
-<h1>Listado de Cocineros</h1>
+<h1>Listado de Cocineros---</h1>
 
 <table>
 	<tr>
