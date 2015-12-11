@@ -1,4 +1,4 @@
-<h2>Crear mesero</h2>
+<h2>Crear mesa</h2>
 
 <?php 
 echo $this->Form->create('Mesa');
