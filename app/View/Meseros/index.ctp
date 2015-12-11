@@ -1,6 +1,8 @@
 <h2>Lista de meseros</h2>
 <?php
-echo $this->html->link('Crear Mesero',array ('controller'=> 'meseros','action'=>'nuevo'))
+echo $this->html->link('Crear Mesero',array ('controller'=> 'meseros','action'=>'nuevo'));
+echo"<br>";
+echo $this->html->link('Mostrar Mesas',array ('controller'=> 'mesas','action'=>'index'));
 ?>
 <table>
 	<tr>
