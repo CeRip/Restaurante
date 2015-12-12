@@ -1,8 +1,8 @@
 <?php
 class  MeserosController extends AppController
 {
-	public $helpers = array('Html','Form','Time');
-	public $components=array('Flash');
+	public $helpers = array('Html','Form','Time', );
+	public $components=array('Flash','RequestHandler');
 	
 	public function index()
 	{

@@ -22,9 +22,9 @@
 			<?php echo h($platillo['Platillo']['precio']); ?>
 			&nbsp;
 		</dd>
-		<br><br>
+		
 
-		<?php echo $this->Form->button('Agregar Pedido', array('class' => 'btn','id'=>$platillo['Platillo']['id']));?>
+		
 
 
 
@@ -48,14 +48,17 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Platillo'), array('action' => 'edit', $platillo['Platillo']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Platillo'), array('action' => 'delete', $platillo['Platillo']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $platillo['Platillo']['id']))); ?> </li>
-		<li><?php echo $this->Html->link(__('List Platillos'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Platillo'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categoria Platillos'), array('controller' => 'categoria_platillos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Categoria Platillo'), array('controller' => 'categoria_platillos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cocineros'), array('controller' => 'cocineros', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cocinero'), array('controller' => 'cocineros', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Agregar al Pedido'), array('action' => 'add', $platillo['Platillo']['id']), array('confirm' => __('Confirmar adicion de # %s?', $platillo['Platillo']['id']))); ?> </li>
+
+		<li><?php echo $this->Html->link(__('Editar Platillo'), array('action' => 'edit', $platillo['Platillo']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Eliminar Platillo'), array('action' => 'delete', $platillo['Platillo']['id']), array('confirm' => __('Estas seguro que quieres eliminar # %s?', $platillo['Platillo']['id']))); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista de Platillos'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Platillo'), array('action' => 'add')); ?> </li>
+
+		<li><?php echo $this->Html->link(__('Lista Categorias Platillos'), array('controller' => 'categoria_platillos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nueva Categoria Platillo'), array('controller' => 'categoria_platillos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista de Cocineros'), array('controller' => 'cocineros', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Cocinero'), array('controller' => 'cocineros', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
