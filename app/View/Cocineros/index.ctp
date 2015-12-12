@@ -54,3 +54,6 @@
 		<li><?php echo $this->Html->link(__('New Platillo'), array('controller' => 'platillos', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?php
+echo $this->html->link('Volver a menu', array('controller'=>'menu', 'action'=>'index'));
+?>

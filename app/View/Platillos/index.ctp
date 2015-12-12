@@ -58,3 +58,7 @@
 		<li><?php echo $this->Html->link(__('New Cocinero'), array('controller' => 'cocineros', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+
+<?php
+echo $this->html->link('Volver a menu', array('controller'=>'menu', 'action'=>'index'));
+?>
