@@ -17,10 +17,20 @@
 
 
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Meseros <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Meseros<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><?php echo $this->html->link('Lista Meseros', array('controller'=>'meseros', 'action'=> 'index'))?></li>
                 <li><?php echo $this->html->link('Nuevo Mesero', array('controller'=>'meseros', 'action'=> 'nuevo'))?></li>
+                </li>
+               
+              </ul>
+            </li>
+
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cocineros<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><?php echo $this->html->link('Lista Cocineros', array('controller'=>'cocineros', 'action'=> 'index'))?></li>
+                <li><?php echo $this->html->link('Nuevo Cocinero', array('controller'=>'cocineros', 'action'=> 'add'))?></li>
                 </li>
                
               </ul>
