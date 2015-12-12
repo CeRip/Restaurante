@@ -1,3 +1,4 @@
+
 <div class="platillos view">
 <h2><?php echo __('Platillo'); ?></h2>
 	<dl>
@@ -21,6 +22,12 @@
 			<?php echo h($platillo['Platillo']['precio']); ?>
 			&nbsp;
 		</dd>
+		<br><br>
+
+		<?php echo $this->Form->button('Agregar Pedido', array('class' => 'btn','id'=>$platillo['Platillo']['id']));?>
+
+
+
 		<dt><?php echo __('Created'); ?></dt>
 		<dd>
 			<?php echo h($platillo['Platillo']['created']); ?>

@@ -9,4 +9,6 @@ echo"<br><br>";
 echo $this->html->link('Platillos', array('controller'=>'platillos', 'action'=>'index'));
 echo"<br><br>";
 echo $this->html->link('Categoria Platillos', array('controller'=>'categoriaplatillos', 'action'=>'index'));
+echo"<br><br>";
+echo $this->html->link('Pedidos', array('controller'=>'pedidos', 'action'=>'index'));
 ?>

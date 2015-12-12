@@ -80,6 +80,9 @@ class Platillo extends AppModel {
 		)
 	);
 
+	
+
+
 /**
  * hasAndBelongsToMany associations
  *
@@ -101,4 +104,23 @@ class Platillo extends AppModel {
 		)
 	);
 
+
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'Pedido' => array(
+			'className' => 'Pedido',
+			'foreignKey' => 'platillo_id',
+			'dependent' => false,
+			
+		)
+	);
+	
+	
+
 }
+
+?>
