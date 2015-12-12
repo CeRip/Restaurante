@@ -1,11 +1,12 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Cocinero Model
+ * Platillo Model
  *
- * @property Platillo $Platillo
+ * @property CategoriaPlatillo $CategoriaPlatillo
+ * @property Cocinero $Cocinero
  */
-class Cocinero extends AppModel {
+class Platillo extends AppModel {
 
 /**
  * Display field
@@ -20,24 +21,6 @@ class Cocinero extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'dni' => array(
-			'notBlank' => array(
-				'rule' => array('notBlank'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'nombre' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
@@ -48,7 +31,7 @@ class Cocinero extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'apellido' => array(
+		'descripcion' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
 				//'message' => 'Your custom message here',
@@ -58,17 +41,19 @@ class Cocinero extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'telefono' => array(
-			'notBlank' => array(
-				'rule' => array('notBlank'),
+		'precio' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-			'numeric' => array(
-				'rule' => array('numeric'),
+		),
+		'categoria_platillo_id' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -81,16 +66,31 @@ class Cocinero extends AppModel {
 	// The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
+ * belongsTo associations
+ *
+ * @var array
+ */
+	public $belongsTo = array(
+		'CategoriaPlatillo' => array(
+			'className' => 'CategoriaPlatillo',
+			'foreignKey' => 'categoria_platillo_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+
+/**
  * hasAndBelongsToMany associations
  *
  * @var array
  */
 	public $hasAndBelongsToMany = array(
-		'Platillo' => array(
-			'className' => 'Platillo',
+		'Cocinero' => array(
+			'className' => 'Cocinero',
 			'joinTable' => 'cocineros_platillos',
-			'foreignKey' => 'cocinero_id',
-			'associationForeignKey' => 'platillo_id',
+			'foreignKey' => 'platillo_id',
+			'associationForeignKey' => 'cocinero_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
