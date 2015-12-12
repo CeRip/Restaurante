@@ -37,6 +37,10 @@ class Cocinero extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'unique'=>array(
+                        	'rule' => 'isUnique',
+                        	'message' =>'El DNI debe ser unico',
+                    ),
 		),
 		'nombre' => array(
 			'notBlank' => array(
