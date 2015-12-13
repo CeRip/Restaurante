@@ -12,6 +12,7 @@ class MesasController extends AppController{
 		if ($this->request->is('post')){
 			 $this->Mesa->create();
 			 if ($this->Mesa->save($this->request->data)) {
+			 	echo"<br><br>";
 			 	$this->Flash->set('La mesa ha sido creada',['element' => 'success']);
 			 	return $this->redirect(array('action'=>'index'));
 
