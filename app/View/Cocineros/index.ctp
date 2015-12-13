@@ -3,7 +3,7 @@
 	
 <div class="col-md-12">
 
-	<thead>
+	
 	<table class="table table-striped" cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>

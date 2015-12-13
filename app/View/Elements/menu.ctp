@@ -36,6 +36,27 @@
               </ul>
             </li>
 
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mesas<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><?php echo $this->html->link('Lista de Mesas', array('controller'=>'mesas', 'action'=> 'index'))?></li>
+                <li><?php echo $this->html->link('Nueva Mesa', array('controller'=>'mesas', 'action'=> 'nuevo'))?></li>
+                </li>
+               
+              </ul>
+            </li>
+
+
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Platillos<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><?php echo $this->html->link('Lista Platillos', array('controller'=>'platillos', 'action'=> 'index'))?></li>
+                <li><?php echo $this->html->link('Nuevo Platillo', array('controller'=>'platillos', 'action'=> 'add'))?></li>
+                </li>
+               
+              </ul>
+            </li>
+
 
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>

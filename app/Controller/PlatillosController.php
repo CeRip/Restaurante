@@ -13,7 +13,9 @@ class PlatillosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	
+	public $components = array('Paginator','Flash','RequestHandler');
+	public $helpers = array('Html','Form','Time', );
 
 /**
  * index method
