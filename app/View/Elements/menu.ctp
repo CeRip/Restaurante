@@ -57,7 +57,7 @@
                 </li>
                
              </ul>
-              <li><?php echo $this->html->link('Pedidos',array('controller'=>'pedidos','action'=>'wiew'),array('class'=>'btn btn-sm btn-default'));?>
+              <li><?php echo $this->html->link('Pedidos',array('controller'=>'pedidos','action'=>'view'),array('class'=>'btn btn-sm btn-default'));?>
             
 
 
