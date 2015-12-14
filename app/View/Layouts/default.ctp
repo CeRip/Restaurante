@@ -28,25 +28,34 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css(array('style.css','bootstrap.min','bootstrap-theme.min'));
-		echo $this->html->script(array('jquery.min','docs.min','bootstrap.min'));
+		echo $this->Html->css(array('style.css','bootstrap.min','bootstrap-theme.min','fileinput.min.css','jquery-ui.min.css'));
+		echo $this->html->script(array('jquery.min','docs.min','bootstrap.min','fileinput.min.js','jquery-ui.min.js'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+	<script type="text/javascript">
+	var basePath="<?php echo Router :: url('/')?>";
+	</script>
 </head>
 <body>
-<body role="document">
+<body >
+<div id="header">
 <?php echo $this->element('menu');?>
-  <br><br>
+ </div>>
+  
 
-<div class="container theme-showcase" role="main">
+      <div class="container theme-showcase" role="main">
 
-      
       <?php echo $this->Flash->render(); ?>
 
 			<?php echo $this->fetch('content'); ?>
+			<br><br>
+			<div id="msg"></div>
+
+
+
 				<div id="footer">
 			<?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),

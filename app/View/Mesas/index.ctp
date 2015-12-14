@@ -1,5 +1,6 @@
+<div class="page-header">
 <h2>Lista de mesas</h2>
-
+</div>
 <div class="col-md-12">
 <table class="table table-striped">
 	<thead>
@@ -26,7 +27,7 @@
 				<td><?php echo $this->Time->format('d-m-Y ; h:i A',$mesa['Mesa']['modified']); ?></td>
 				<td><?php echo $this->html->link($mesa['Mesero']['nombre'].' '.$mesa['Mesero']['apellido'],array('controller'=>'meseros', 'action'=>'ver', $mesa['Mesero']['id']), array('class'=>'btn btn-sm btn-default'));?></td>
 				<td> <?php echo $this->Html->link('Editar', array('controller'=>'mesas','action'=>'editar', $mesa['Mesa']['id']), array('class'=>'btn btn-sm btn-default'));?></td>
-			<td><?php echo $this->Form->postLink('Eliminar',array('action'=>'eliminar',$mesa['Mesa']['id']), array('class'=>'btn btn-sm btn-default'),array('confirm'=>'Eliminar a'.$mesa['Mesa']['serie'].'?'))?></td>
+			<td><?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'eliminar', $mesa['Mesa']['id']), array('class' => 'btn btn-sm btn-default'), __('Are you sure you want to delete # %s?', $mesa['Mesa']['id']));?></td>
 		</tr>
 
 <?php endforeach;?>

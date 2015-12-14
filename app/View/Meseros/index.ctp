@@ -20,7 +20,8 @@
 		<td><?php echo $mesero['Mesero']['apellido'];?></td>
 		<td><?php echo $this->Html->link('Detalle', array('controller'=>'meseros','action'=>'ver', $mesero['Mesero']['id']), array('class'=>'btn btn-sm btn-default'));?></td>
 		<td> <?php echo $this->Html->link('Editar', array('controller'=>'meseros','action'=>'editar', $mesero['Mesero']['id']), array('class'=>'btn btn-sm btn-default'));?></td>
-		<td><?php echo $this->Form->postLink('Eliminar',array('action'=>'eliminar',$mesero['Mesero']['id']), array('class'=>'btn btn-sm btn-default'),array('confirm'=>'Eliminar a'.$mesero['Mesero']['nombre'].'?'))?></td>
+		<td><?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'eliminar', $mesero['Mesero']['id']), array('class' => 'btn btn-sm btn-default'), __('Estas seguro que quieres eliminar a  # %s?',$mesero['Mesero']['nombre']));?>
+		</td>
 	</tr>
 
 <?php endforeach;?>

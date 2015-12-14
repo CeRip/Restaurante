@@ -13,10 +13,11 @@ class MesasController extends AppController{
 			 $this->Mesa->create();
 			 if ($this->Mesa->save($this->request->data)) {
 			 	echo"<br><br>";
+			 	
 			 	$this->Flash->set('La mesa ha sido creada',['element' => 'success']);
 			 	return $this->redirect(array('action'=>'index'));
-
-			 }
+				
+			 		 }
 			 $this->Flash->set('No se pudo crear la mesa');
 		}
 		$meseros=$this->Mesa->Mesero->find('list', array('fields'=>array('id','nombre_completo')));

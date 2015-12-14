@@ -1,6 +1,10 @@
+<?php echo $this->html->script(array('addtocart.js'), array('inline'=> false))?>
+
 
 <div class="platillos view">
 <h2><?php echo __('Platillo'); ?></h2>
+
+
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -19,13 +23,10 @@
 		</dd>
 		<dt><?php echo __('Precio'); ?></dt>
 		<dd>
-			<?php echo h($platillo['Platillo']['precio']); ?>
+			<?php echo '$ '.h($platillo['Platillo']['precio']); ?>
 			&nbsp;
 		</dd>
-		
-
-		
-
+		<?php echo $this->Form->button('Agregar a Pedido', array('class'=>'btn btn-primary addtocart', 'id'=>$platillo['Platillo']['id']));?>
 
 
 		<dt><?php echo __('Created'); ?></dt>

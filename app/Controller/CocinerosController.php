@@ -13,8 +13,15 @@ class CocinerosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator','Flash','RequestHandler');
-	public $helpers = array('Html','Form','Time', );
+	public $components = array('Paginator','Flash');
+	public $helpers = array('Html','Form','Time');
+
+	 public $paginate = array(
+        'limit' => 3,
+        'order' => array(
+            'Cocinero.id' => 'asc'
+        )
+    );
 	
 /**
  * index method
@@ -22,7 +29,10 @@ class CocinerosController extends AppController {
  * @return void
  */
 	public function index() {
+
 		$this->Cocinero->recursive = 0;
+		$this->paginate['Cocinero']['limit'] = 3;
+		$this->paginate['Cocinero']['order'] = array('Cocinero.id' => 'asc');
 		$this->set('cocineros', $this->Paginator->paginate());
 	}
 

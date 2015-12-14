@@ -1,8 +1,8 @@
 <?php
 class PedidosController extends AppController{
 
-public $helpers = array('Html','Form','Time');
-	public $components=array('Flash');
+	public $helpers = array('Html','Form','Time');
+	public $components=array('Flash','RequestHandler');
 	
 	public function index()
 	{
@@ -10,19 +10,37 @@ public $helpers = array('Html','Form','Time');
 
 	}
 
-	public function add()
-	{
-		if ($this->request->is('post')){
-			 $this->Pedido->create();
-			 if ($this->Pedido->save($this->request->data)) {
-			 	$this->Flash->set('El platillo a sido añadido',['element' => 'success']);
-			 	return $this->redirect(array('action'=>'index'));
+	public function wiew(){
+		$this->set('pedidos',$this->Pedido->find('all',array('orden'=>'Pedido.id ASC')));
 
-			 }
-			 $this->Flash->set('No se pudo agregar');
 	}
-		$meseros=$this->Mesa->Mesero->find('list', array('fields'=>array('id','nombre_completo')));
-		$this->set('meseros', $meseros);
+
+	 public function add()
+    {
+        if($this->request->is('ajax'))
+        {
+            $id = $this->request->data['id'];
+            $cantidad = $this->request->data['cantidad'];
+            
+            $platillo = $this->Pedido->Platillo->find('all', array('fields' => array('Platillo.precio'), 'conditions' => array('Platillo.id' => $id)));
+            
+            $precio = $platillo[0]['Platillo']['precio'];
+            
+            $subtotal = $cantidad * $precio;
+            
+            $pedido = array( 'platillo_id' => $id, 'cantidad' => $cantidad, 'subtotal' => $subtotal );
+            
+            $existe_pedido = $this->Pedido->find( 'all', array('fields' => array('Pedido.platillo_id'), 'conditions' => array('Pedido.platillo_id' => $id)));
+            
+            if(count($existe_pedido) == 0)
+            {
+                $this->Pedido->save($pedido);
+            }
+        
+        }
+        
+        $this->autoRender = false;
+    }
 }
 
 ?>
