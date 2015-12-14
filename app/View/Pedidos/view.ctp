@@ -1,6 +1,7 @@
 <?php #debug($pedidos);?>
 
 <?php echo $this->html->script(array('cart.js'),array('inline'=>false));?>
+<?php echo $this->Form->create(NULL, array('url'=>array('controller'=>'pedidos', 'action'=>'recalcular')));?>
 <h1>Pedidos</h1>
 
 <hr>
@@ -54,13 +55,15 @@
 		&nbsp;&nbsp;
 
 		<?php echo $this->Form->button('Recalcular', array('class' => 'btn btn-default', 'escape' => false, 'name' => 'recalcular', 'value' => 'recalcular')); ?>
+		<br><br>
+		<?php echo $this->Form->button('Procesar Orden',array('class'=>'btn btn-primary','escape'=>false,'name'=>'procesar','value'=>'procesar'));?>
 
 		<br><br><br><br>
 		<span class="total">Total Orden:</span>
 		<span id="total" class="total">
 			$ <?php echo $total_pedidos; ?>
 		</span>
-
+		<?php echo $this->Form->end();?>
 		<br><br>
 		</div>
 	</div>

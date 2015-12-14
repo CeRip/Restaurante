@@ -17,7 +17,7 @@ class PedidosController extends AppController{
             $this->Flash->set('Aún no se realizaron pedidos');
             return $this->redirect(array('controller' => 'platillos', 'action' => 'index'));
         }
-		$this->set('pedidos',$this->Pedido->find('all',array('orden'=>'Pedido.id ASC')));
+		$this->set('pedidos',$this->Pedido->find('all',array('order'=>'Pedido.id ASC')));
 		#total de pedidos
 		$total_pedidos=$this->Pedido->find('all', array('fields'=>array('SUM(Pedido.subtotal)as subtotal')));
 		$mostrar_total_pedidos =$total_pedidos[0][0]['subtotal'];
@@ -84,7 +84,74 @@ class PedidosController extends AppController{
         
         echo json_encode(compact('mostrar_pedido'));
         $this->autoRender = false;
-    }	
+    }
+
+      public function remove()
+    {
+        if($this->request->is('ajax'))
+        {
+            $id = $this->request->data['id'];
+            $this->Pedido->delete($id);
+        }
+        
+        $total_remove = $this->Pedido->find('all', array('fields' => array('SUM(Pedido.subtotal) as subtotal')));
+        $mostrar_total_remove = $total_remove[0][0]['subtotal'];
+        
+        $pedidos = $this->Pedido->find('all');
+        
+        if(count($mostrar_total_remove) == 0)
+        {
+            $mostrar_total_remove = "0.00";
+        }
+        
+        echo json_encode(compact('pedidos', 'mostrar_total_remove'));
+        $this->autoRender = false;
+    }
+
+    public function quitar()
+    {
+        if($this->Pedido->deleteAll(1,false)){
+            $this->Flash->set("Todos los pedidos han sido eliminados");
+            
+        }
+        else{
+            $this->Flash->set("No se pudo quitar los pedidos");
+        }
+        
+        return $this->redirect(array('controller'=>'platillos', 'action'=>'index'));        
+    }
+    public function recalcular(){
+        #debug($_POST);
+        $arreglo= $this->request->data['Pedido'];
+        #debug($arreglo);
+        if($this->request->is('post')){
+        foreach ($arreglo as $key => $value) {
+            $entero=preg_replace("/[^0-9]/", "",$value);
+             if($entero==0 || $entero=="")
+             {
+                $entero=1;
+            }
+            $precio_update = $this->Pedido->find('all', array('fields'=>array('Pedido.id','Platillo.precio'), 'conditions'=> array('Pedido.id'=>$key)));
+            $precio_update_mostrar=$precio_update[0]['Platillo']['precio'];
+            $subtotal_update=$entero * $precio_update_mostrar;
+            $pedido_update=array('id'=>$key, 'cantidad'=>$entero,'subtotal'=>$subtotal_update);
+            $this->Pedido->saveAll($pedido_update);
+        }   
+
+        }
+       
+        if($this->request->data['recalcular']=='reclacular')
+        {
+            $this->Flash->set('Todos los pedidos fueron actualizados correctamente');
+            $return = $this->redirect(array('controller'=>'Pedidos', 'action'=>'view'));
+        }
+        elseif($this->request->data['procesar']=='procesar')
+        {
+            $return = $this->redirect(array('controller'=>'Ordens', 'action'=>'add'));
+
+        }
+        
+    }
 
 }
 

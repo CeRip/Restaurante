@@ -32,5 +32,22 @@ class Mesa extends AppModel{
 						'rule'=>'notBlank'
 				)
 		);
+
+	public $hasMany = array(
+		'Orden' => array(
+			'className' => 'Orden',
+			'foreignKey' => 'mesa_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);		
+
 }
 ?>

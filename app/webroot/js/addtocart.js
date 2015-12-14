@@ -11,6 +11,10 @@ $(document).ready(function(){
             success: function(data) {
                 $('#msg').html('<div class="alert alert-success flash-msg">Platillo agregado al pedido.</div>');
                 $('.flash-msg').delay(2000).fadeOut('slow');
+                if(data.pedidos == "")
+                {
+                    window.location.replace(basePath + "platillos/index");
+                }
             },
             error: function(){
                 alert('Tenemos problemas!!!');
