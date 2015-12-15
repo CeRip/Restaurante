@@ -3,18 +3,18 @@
 		<div class="col-md-11">
 
 		<fieldset>
-					<legend><?php echo __('Crear Categoria Platillo'); ?></legend></fieldset>
+					<legend><?php echo __('Categoria Platillo'); ?></legend></fieldset>
 
 			<dl>
 				<div class="col-md-2">
-				<dt><span class="form-control"><?php echo __('Id',array()); ?></span></dt>
+				<dt><?php echo __('Id',array()); ?></dt>
 				<dd>
 					<?php echo h($categoriaPlatillo['CategoriaPlatillo']['id']); ?>
 					&nbsp;
 				</dd>
 				</div>
 				<div class="col-md-2">
-				<dt><span class="form-control"><?php echo __('Categoria'); ?></span></dt>
+				<dt><?php echo __('Categoria'); ?></dt>
 				<dd>
 					<?php echo h($categoriaPlatillo['CategoriaPlatillo']['categoria']); ?>
 					&nbsp;
@@ -53,7 +53,7 @@
 				<th><?php echo __('Precio'); ?></th>
 				<th><?php echo __('Created'); ?></th>
 				<th><?php echo __('Modified'); ?></th>
-				<th><?php echo __('Categoria Platillo Id'); ?></th>
+				<th><?php echo __('Categoria Id'); ?></th>
 				<th class="actions"><?php echo __('Actions'); ?></th>
 			</tr>
 			</thead>
@@ -79,6 +79,5 @@
 		<?php endif; ?>
 
 	
-</div>
 </div>
 </div>

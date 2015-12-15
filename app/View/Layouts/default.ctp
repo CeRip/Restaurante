@@ -14,7 +14,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeDescription = __d('cake_dev', 'Restaurante');
 $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 ?>
 <!DOCTYPE html>
@@ -48,7 +48,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
       <div class="container theme-showcase" role="main">
 
-      <?php echo $this->Flash->render(); ?>
+      		<?php echo $this->Flash->render(); ?>
 
 			<?php echo $this->fetch('content'); ?>
 			<br><br>
