@@ -13,7 +13,7 @@ class OrdenItemsController extends AppController{
     {
         $this->OrdenItem->recursive = 2;
         
-        if(!$this->OrdenItem->Orden->exists($id))
+        if(!$this->OrdenItem->exists($id))
         {
             throw new NotFoundException('pedido invalido');
         }

@@ -33,7 +33,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $cocinero['Cocinero']['id']), array('class'=>'btn btn-sm btn-default')); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $cocinero['Cocinero']['id']), array('class'=>'btn btn-sm btn-default')); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $cocinero['Cocinero']['id']), array('class'=>'btn btn-sm btn-default'), array('confirm' => __('Are you sure you want to delete # %s?', $cocinero['Cocinero']['id']))); ?>
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $cocinero['Cocinero']['id']), array('class' => 'btn btn-sm btn-default'), __('Estas seguro que quieres eliminar a  # %s?',$cocinero['Cocinero']['nombre'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

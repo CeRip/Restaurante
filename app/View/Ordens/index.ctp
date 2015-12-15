@@ -34,7 +34,7 @@
 				    echo $this->Html->link('Ver pedidos', array('controller' => 'orden_items', 'action' => 'view', $orden['Orden']['id']), array('class' => 'btn btn-sm btn-info'));
 				?>
 				
-				    <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'eliminar', $orden['Orden']['id']), array('class' => 'btn btn-sm btn-default'), __('Estas seguro que quieres eliminar a  # %s?',$orden['Orden']['id']));?>
+				    <?php # echo $this->Form->postLink(__('Eliminar'), array('action' => 'eliminar', $orden['Orden']['id']), array('class' => 'btn btn-sm btn-default'), __('Estas seguro que quieres eliminar a  # %s?',$orden['Orden']['id']));?>
 				
 			</td>
 			</tr>

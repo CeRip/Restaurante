@@ -62,7 +62,7 @@ class OrdensController extends AppController{
         }
     }
        
-    
+    /*
     public function eliminar($id)
     {
         if ($this->request->is('get')) {
@@ -74,7 +74,7 @@ class OrdensController extends AppController{
 			$this->Flash->set("Se elimino la orden", ['element' => 'success']);
 			return $this->redirect(array('action'=>'index'));
 		}
-	}
+	}*/
 }	
 
 ?>

@@ -140,10 +140,11 @@ class PedidosController extends AppController{
 
         }
        
-        if($this->request->data['recalcular']=='reclacular')
+        if($this->request->data['recalcular']=='recalcular')
         {
             $this->Flash->set('Todos los pedidos fueron actualizados correctamente');
             $return = $this->redirect(array('controller'=>'Pedidos', 'action'=>'view'));
+
         }
         elseif($this->request->data['procesar']=='procesar')
         {

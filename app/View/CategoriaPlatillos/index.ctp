@@ -18,7 +18,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $categoriaPlatillo['CategoriaPlatillo']['id']), array('class'=>'btn btn-sm btn-default')); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $categoriaPlatillo['CategoriaPlatillo']['id']), array('class'=>'btn btn-sm btn-default')); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $categoriaPlatillo['CategoriaPlatillo']['id']),  array('class'=>'btn btn-sm btn-default'),array('confirm' => __('Are you sure you want to delete # %s?', $categoriaPlatillo['CategoriaPlatillo']['id']))); ?>
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $categoriaPlatillo['CategoriaPlatillo']['id']), array('class' => 'btn btn-sm btn-default'), __('Estas seguro que quieres eliminar a  # %s?',$categoriaPlatillo['CategoriaPlatillo']['categoria'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
