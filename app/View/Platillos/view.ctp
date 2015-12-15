@@ -90,7 +90,7 @@
 <div class="col-md-12">
 <div class="related">
 	<fieldset>
-					<legend><?php echo __('Platillos Relacionados'); ?></legend><fieldset></fieldset>
+					<legend><?php echo __('Cocineros Responsables'); ?></legend><fieldset></fieldset>
 	<?php if (!empty($platillo['Cocinero'])): ?>
 	<table class="table table-striped">
 	<thead>
