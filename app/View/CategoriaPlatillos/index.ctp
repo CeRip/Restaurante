@@ -1,6 +1,8 @@
 <div class="categoriaPlatillos index">
 	<h2><?php echo __('Categoria Platillos'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<div class="col-md-12">
+
+	<table class="table table-striped" cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -14,14 +16,15 @@
 		<td><?php echo h($categoriaPlatillo['CategoriaPlatillo']['id']); ?>&nbsp;</td>
 		<td><?php echo h($categoriaPlatillo['CategoriaPlatillo']['categoria']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $categoriaPlatillo['CategoriaPlatillo']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $categoriaPlatillo['CategoriaPlatillo']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $categoriaPlatillo['CategoriaPlatillo']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $categoriaPlatillo['CategoriaPlatillo']['id']))); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $categoriaPlatillo['CategoriaPlatillo']['id']), array('class'=>'btn btn-sm btn-default')); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $categoriaPlatillo['CategoriaPlatillo']['id']), array('class'=>'btn btn-sm btn-default')); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $categoriaPlatillo['CategoriaPlatillo']['id']),  array('class'=>'btn btn-sm btn-default'),array('confirm' => __('Are you sure you want to delete # %s?', $categoriaPlatillo['CategoriaPlatillo']['id']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
 	</tbody>
 	</table>
+	</div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -36,15 +39,5 @@
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Categoria Platillo'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Platillos'), array('controller' => 'platillos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Platillo'), array('controller' => 'platillos', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
 
-<?php
-echo $this->html->link('Volver a menu', array('controller'=>'menu', 'action'=>'index'));
-?>
+

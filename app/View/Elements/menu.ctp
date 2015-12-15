@@ -56,7 +56,7 @@
                 <li><?php echo $this->html->link('Nueva Categoria', array('controller'=>'categoria_platillos', 'action'=> 'add'))?></li>
                 </li>
                
-             </ul>
+             </ul><li><?php echo $this->Html->link('Lista de Ordenes', array('controller'=>'ordens','action'=>'index')); ?></li>
               <li><?php echo $this->html->link('Pedidos',array('controller'=>'pedidos','action'=>'view'),array('class'=>'btn btn-sm btn-default'));?>
             
 
